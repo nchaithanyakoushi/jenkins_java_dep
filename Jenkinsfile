@@ -3,6 +3,7 @@ pipeline {
     tools {
         jdk 'jdk'
         maven 'Maven'
+        
     }
     
     stages {
@@ -19,6 +20,12 @@ pipeline {
         stage('Compile') {
             steps {
                 sh "mvn clean compile -DskipTests=true"
+            }
+        }
+        stage('dependencyscan') {
+            steps {
+                dependencyCheck additionalArguments: '--scan ./ --format HTML', odc Installation: 'dependencycheck'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
     }
