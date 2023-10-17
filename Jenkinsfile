@@ -24,7 +24,7 @@ pipeline {
         }
         stage('dependencyscan') {
             steps {
-                dependencyCheck additionalArguments: '--scan ./ --format HTML', odc Installation: 'dependencycheck'
+                dependencyCheck additionalArguments: '--scan ./ --format HTML', odcInstallation: 'dependencycheck'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
