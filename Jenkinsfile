@@ -28,5 +28,10 @@ pipeline {
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
+        stage('Sonarscan') {
+            steps {
+                echo 'Hello World'
+            }
+        }
     }
 }
