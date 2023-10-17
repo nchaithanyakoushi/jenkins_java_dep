@@ -48,6 +48,12 @@ pipeline {
                     
             }
         }
+        
+        stage('Deploying') {
+            steps {
+               echo 'Deploying' 
+                   
+            }
     }
 }
 
