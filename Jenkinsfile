@@ -38,5 +38,16 @@ pipeline {
                 sh "mvn clean package -DskipTests=true"
             }
         }
+        stage('Docker push to Jfrog') {
+            steps {
+                withDockerRegistry(credentialsId: '673da50a-7a06-48a1-9e04-3c250bd249e6', toolName: 'Docker') {}
+                    // docker file
+                    // sh "docker build -t helloworld:latest .
+                    // sh "docker tag helloworld helloworld:latest
+               echo 'docker image push to jfrog' 
+                    
+            }
+        }
     }
 }
+
