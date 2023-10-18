@@ -1,11 +1,7 @@
-# Use an official Java runtime as a parent image
-FROM openjdk:11-jre-slim
+FROM openjdk:8-jre-alpine3.9
 
-# Set the working directory in the container
-WORKDIR /app
+COPY target/my-project-1.0.jar /app.jar
 
-# Copy the application JAR file into the container
-COPY your-java-app.jar /app/your-java-app.jar
+EXPOSE 8080
 
-# Specify the command to run your Java application
-CMD ["java", "-jar", "your-java-app.jar"]
+CMD ["java", "-jar", "/app.jar"]
